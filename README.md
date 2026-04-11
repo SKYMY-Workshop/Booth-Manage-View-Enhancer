@@ -1,4 +1,4 @@
-# BOOTH Variation Collapser
+# Booth Manage View Enhancer
 
 [BOOTH](https://booth.pm/) の商品管理画面（`manage.booth.pm/items`）で、商品一覧の表示をカスタマイズできる Chrome 拡張機能です。
 
@@ -50,12 +50,12 @@ BOOTHの標準的な商品一覧表示です。バリエーションが縦に長
 
 1. このリポジトリをクローンまたはダウンロードします
    ```
-   git clone https://github.com/<your-username>/booth-variation-collapser.git
+   git clone https://github.com/<your-username>/booth-manage-view-enhancer.git
    ```
 2. Chrome で `chrome://extensions/` を開きます
 3. 右上の **「デベロッパーモード」** を ON にします
 4. **「パッケージ化されていない拡張機能を読み込む」** をクリックします
-5. ダウンロードしたフォルダ内の `BOOTH Variation Collapser_v1.0.0` フォルダを選択します
+5. ダウンロードしたフォルダ内の `Booth Manage View Enhancer_v1.0.0` フォルダを選択します
 
 ## 使い方
 
@@ -85,7 +85,7 @@ Chrome ツールバーの拡張機能アイコンをクリックすると設定�
 ## ファイル構成
 
 ```
-BOOTH Variation Collapser_v1.0.0/
+Booth Manage View Enhancer_v1.0.0/
 ├── manifest.json       # 拡張機能の設定ファイル (Manifest V3)
 ├── content.js          # 商品管理画面のUI改修スクリプト
 ├── content.css         # レイアウト・アニメーションのスタイル

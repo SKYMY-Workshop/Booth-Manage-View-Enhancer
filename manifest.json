@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "BOOTH Variation Collapser",
+  "name": "Booth Manage View Enhancer",
   "version": "1.0.0",
   "description": "BOOTHの商品管理画面で、各商品のバリエーション一覧を折りたたみ/展開できるようにします。",
   "permissions": ["storage"],

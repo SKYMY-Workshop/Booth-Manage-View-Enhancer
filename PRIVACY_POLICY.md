@@ -1,8 +1,8 @@
-# プライバシーポリシー - BOOTH Variation Collapser
+# プライバシーポリシー - Booth Manage View Enhancer
 
 ## 概要
 
-BOOTH Variation Collapser は、BOOTHの商品管理ページの表示をカスタマイズするChrome拡張機能です。本拡張機能はすべての処理をクライアント側で行い、ユーザーのデータを収集・送信・共有することはありません。
+Booth Manage View Enhancer は、BOOTHの商品管理ページの表示をカスタマイズするChrome拡張機能です。本拡張機能はすべての処理をクライアント側で行い、ユーザーのデータを収集・送信・共有することはありません。
 
 ## データの収集
 
