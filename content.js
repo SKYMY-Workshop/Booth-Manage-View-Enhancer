@@ -213,13 +213,6 @@
 
   /**
    * タイルモード時にレイアウトを再構成する
-   *
-   * モックアップ:
-   *   商品名                                    ▼
-   *   [サムネ]  ❤ 2554 [公開中]  ... 編集する
-   *   合計 (27)      販売数: 734  売上: ¥1,627,600
-   *   ─────────────────────────────────────
-   *   バリエーション | 価格 | 在庫 | 販売数 | 売上
    */
   function moveFootersForTile(enabled) {
     document.querySelectorAll("li.js-item-wrapper").forEach((item) => {
