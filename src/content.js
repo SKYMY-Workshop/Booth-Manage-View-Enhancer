@@ -6,6 +6,7 @@
   const STORAGE_KEY_COMPACT = "booth_compact_mode";
   const STORAGE_KEY_TILE = "booth_tile_mode";
   const STORAGE_KEY_TILE_HEIGHT = "booth_tile_height";
+  const STORAGE_KEY_SUMMARY_HIDDEN = "booth_summary_hidden";
 
   const DEFAULT_TILE_HEIGHT = 420;
 
@@ -135,6 +136,11 @@
       // サマリー → テーブルの順で挿入
       originalVariation.after(summary);
       summary.after(compactWrap);
+
+      // サマリー非表示の適用
+      if (settings.summaryHidden) {
+        summary.classList.add("booth-summary-hidden");
+      }
 
       // コンパクトモードの適用
       if (settings.compact) {
@@ -415,6 +421,7 @@
       [STORAGE_KEY_COMPACT]: true,
       [STORAGE_KEY_TILE]: true,
       [STORAGE_KEY_TILE_HEIGHT]: DEFAULT_TILE_HEIGHT,
+      [STORAGE_KEY_SUMMARY_HIDDEN]: false,
     },
     (result) => {
       const settings = {
@@ -423,6 +430,7 @@
         compact: result[STORAGE_KEY_COMPACT],
         tile: result[STORAGE_KEY_TILE],
         tileHeight: result[STORAGE_KEY_TILE_HEIGHT],
+        summaryHidden: result[STORAGE_KEY_SUMMARY_HIDDEN],
       };
 
       currentTileHeight = settings.tileHeight;
@@ -457,6 +465,13 @@
             el.classList.toggle("booth-tags-hidden", hidden);
           });
           settings.tagsHidden = hidden;
+        }
+        if (changes[STORAGE_KEY_SUMMARY_HIDDEN]) {
+          const hidden = changes[STORAGE_KEY_SUMMARY_HIDDEN].newValue;
+          document.querySelectorAll(".booth-compact-summary").forEach((el) => {
+            el.classList.toggle("booth-summary-hidden", hidden);
+          });
+          settings.summaryHidden = hidden;
         }
         if (changes[STORAGE_KEY_COMPACT]) {
           const compact = changes[STORAGE_KEY_COMPACT].newValue;

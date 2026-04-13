@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 280px;
+      padding: 16px;
+      font-family: "Segoe UI", "Hiragino Sans", "Meiryo", sans-serif;
+      font-size: 14px;
+      color: #333;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 14px;
+      margin: 0 0 12px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+    }
+
+    .setting-row + .setting-row {
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .setting-label {
+      font-size: 13px;
+      flex: 1;
+      margin-right: 12px;
+    }
+
+    /* Toggle Switch */
+    .toggle-switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      background-color: #ccc;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .toggle-slider::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background-color: #fc4d50;
+    }
+
+    .toggle-switch input:checked + .toggle-slider::before {
+      transform: translateX(20px);
+    }
+
+    .hint {
+      font-size: 11px;
+      color: #888;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Booth Manage View Enhancer</h1>
+
+  <div class="section-label">レイアウト</div>
+
+  <div class="setting-row">
+    <span class="setting-label">タイル表示</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="tileMode">
+      <span class="toggle-slider"></span>
+    </label>
+  </div>
+
+  <div class="setting-row">
+    <span class="setting-label">コンパクトテーブル</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="compactMode">
+      <span class="toggle-slider"></span>
+    </label>
+  </div>
+
+  <div class="section-label">表示</div>
+
+  <div class="setting-row">
+    <span class="setting-label">デフォルトで折りたたむ</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="defaultCollapsed">
+      <span class="toggle-slider"></span>
+    </label>
+  </div>
+
+  <div class="setting-row">
+    <span class="setting-label">タグを非表示にする</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="tagsHidden">
+      <span class="toggle-slider"></span>
+    </label>
+  </div>
+
+  <div class="setting-row">
+    <span class="setting-label">合計サマリーを非表示</span>
+    <label class="toggle-switch">
+      <input type="checkbox" id="summaryHidden">
+      <span class="toggle-slider"></span>
+    </label>
+  </div>
+
+  <p class="hint">
+    タイル表示・コンパクトテーブル・タグ非表示は即時反映されます。<br>
+    タイル表示中は右下のスライダーで高さを調整できます。
+  </p>
+  <script src="popup.js"></script>
+</body>
+</html>

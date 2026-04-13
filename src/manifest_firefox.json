@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Booth Manage View Enhancer",
+  "version": "1.1.0",
+  "description": "BOOTHの商品管理画面で、各商品のバリエーション一覧を折りたたみ/展開できるようにします。",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "booth-manage-view-enhancer@example.com",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": ["storage"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://manage.booth.pm/items", "https://manage.booth.pm/items?*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

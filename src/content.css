@@ -164,6 +164,11 @@ ul.dashboard-items-tags.booth-tags-hidden {
   font-variant-numeric: tabular-nums;
 }
 
+/* サマリー非表示 */
+.booth-compact-summary.booth-summary-hidden {
+  display: none !important;
+}
+
 /* サマリーがある場合テーブルの上角丸を消す */
 .booth-compact-summary + .booth-compact-table-wrap .booth-compact-table {
   border-radius: 0 0 4px 4px;
