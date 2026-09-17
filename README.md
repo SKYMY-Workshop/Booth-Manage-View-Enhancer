@@ -1,6 +1,6 @@
 # Booth Manage View Enhancer
 
-[BOOTH](https://booth.pm/) の商品管理画面（`manage.booth.pm/items`）で、商品一覧の表示をカスタマイズできる Chrome / Firefox 拡張機能です。
+[BOOTH](https://booth.pm/) の商品管理画面（`manage.booth.pm/items`）で、商品一覧の表示をカスタマイズできる Chrome 拡張機能です。
 
 > **Note:** 本拡張機能はBOOTH公式ではない非公式の拡張機能です。ピクシブ株式会社およびBOOTHとは一切関係ありません。
 
@@ -52,28 +52,14 @@ BOOTHの標準的な商品一覧表示です。バリエーションが縦に長
 
 ## インストール方法
 
-### ビルド
-
 1. このリポジトリをクローンまたはダウンロードします
    ```
-   git clone https://github.com/<your-username>/booth-manage-view-enhancer.git
+   git clone https://github.com/SKYMY-Workshop/Booth-Manage-View-Enhancer.git
    ```
-2. `build.bat` をダブルクリックして実行します
-3. `dist/chrome/` と `dist/firefox/` にそれぞれのブラウザ用ファイルが生成されます
-
-### Chrome / Edge
-
-1. Chrome で `chrome://extensions/` を開きます
-2. 右上の **「デベロッパーモード」** を ON にします
-3. **「パッケージ化されていない拡張機能を読み込む」** をクリックします
-4. `dist/chrome/` フォルダを選択します
-
-### Firefox
-
-1. Firefox で `about:debugging#/runtime/this-firefox` を開きます
-2. **「一時的なアドオンを読み込む…」** をクリックします
-3. `dist/firefox/manifest.json` を選択します
-
+2. Chrome で `chrome://extensions/` を開きます
+3. 右上の **「デベロッパーモード」** を ON にします
+4. **「パッケージ化されていない拡張機能を読み込む」** をクリックします
+5. `src/` フォルダを選択します
 
 ## 使い方
 
@@ -105,12 +91,10 @@ Chrome ツールバーの拡張機能アイコンをクリックすると設定�
 
 ```
 Booth Manage View Enhancer/
-├── build.bat                   # ビルドスクリプト (dist/chrome, dist/firefox を生成)
 ├── README.md
 ├── PRIVACY_POLICY.md           # プライバシーポリシー
-├── src/                        # ソースファイル
-│   ├── manifest.json           # Chrome用マニフェスト (Manifest V3)
-│   ├── manifest_firefox.json   # Firefox用マニフェスト (Manifest V3 + gecko設定)
+├── src/                        # 拡張機能本体（このフォルダを読み込む）
+│   ├── manifest.json           # マニフェスト (Manifest V3)
 │   ├── content.js              # 商品管理画面のUI改修スクリプト
 │   ├── content.css             # レイアウト・アニメーションのスタイル
 │   ├── popup.html              # 設定ポップアップの UI
@@ -120,9 +104,6 @@ Booth Manage View Enhancer/
 │       ├── icon32.png
 │       ├── icon48.png
 │       └── icon128.png
-├── dist/                       # ビルド出力 (build.bat で生成)
-│   ├── chrome/                 # Chrome / Edge 用パッケージ
-│   └── firefox/                # Firefox 用パッケージ
 └── docs/
     ├── before.jpg
     ├── after.jpg
@@ -134,8 +115,6 @@ Booth Manage View Enhancer/
 | ブラウザ | 対応状況 |
 |---------|---------|
 | Google Chrome | Manifest V3 |
-| Microsoft Edge | Manifest V3 |
-| Mozilla Firefox | Manifest V3 + gecko設定 (v109.0以上) |
 
 - BOOTH のショップアカウント（商品管理画面へのアクセスが必要）
 
@@ -155,10 +134,15 @@ Booth Manage View Enhancer/
 
 ## 更新履歴
 
+### v1.2.1
+- BOOTH側のDOM構造変更（バリエーション行が `li.row` → `li.flex...`、商品名が `span.break-all` 内に移動）に追従し、合計サマリー（バリエーション数・販売数・売上）が0になっていた不具合を修正
+
+### v1.2.0
+- Chrome 専用構成に整理（ビルド手順を廃止し、`src/` を直接読み込む形式に変更）
+
 ### v1.1.0
-- Firefox 対応（Manifest V3 + `browser_specific_settings.gecko`）
 - `src/` + `dist/` のプロジェクト構成に変更
-- `build.bat` を追加（Chrome / Firefox 両方のパッケージを生成）
+- ビルドスクリプトを追加
 
 ### v1.0.0
 - 初回リリース

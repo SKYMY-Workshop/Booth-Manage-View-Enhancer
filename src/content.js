@@ -41,7 +41,13 @@
     const label = li.querySelector(".dashboard-items-variation-label");
     const icon = label ? label.querySelector("i[title]") : null;
     const type = icon ? icon.getAttribute("title") : "";
-    const name = label ? getDirectText(label) : "";
+    // 新構造では商品名は span.break-all 内に入る。無ければラベル直下のテキストノードにフォールバック
+    const nameSpan = label ? label.querySelector("span.break-all") : null;
+    const name = nameSpan
+      ? nameSpan.textContent.trim()
+      : label
+        ? getDirectText(label)
+        : "";
     const price = getValueText(li, ".number.price");
     const stock = getValueText(li, ".number.stock");
     const qty = getValueText(li, ".number.sales_quantity");
@@ -114,8 +120,8 @@
       const originalVariation = item.querySelector("ul.dashboard-items-variation");
       if (!originalVariation) return;
 
-      // バリエーションデータを抽出
-      const variationRows = originalVariation.querySelectorAll("li.row");
+      // バリエーションデータを抽出（BOOTHの構造変更により li.row → li.flex 等になったため直下の li を対象にする）
+      const variationRows = originalVariation.querySelectorAll(":scope > li");
       const variations = Array.from(variationRows).map(parseVariationRow);
 
       // コンパクトテーブルを生成
